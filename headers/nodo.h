@@ -1,60 +1,53 @@
 #ifndef NODO_H
 #define NODO_H
 
-template <typename Dato>
+template <typename Tipo>
     class Nodo {
         public:
-        Dato elemento;
-        Nodo<Dato>* siguiente;
+        Tipo elemento;
+        Nodo<Tipo>* siguiente;
 
-        Nodo(Dato elemento);
+        Nodo(Tipo elemento);
 
         /*
         Pre: -
         Post: Devuelve el elemento del nodo.
         */
-        Dato obtener_elemento();
+        Tipo obtener_elemento();
         
         /*
         Pre: -
         Post: Devuelve el nodo siguiente.
         */
-        Nodo<Dato>* obtener_siguiente();
+        Nodo<Tipo>* obtener_siguiente();
 
         /*
         Pre: -
         Post: Modifica el nodo siguiente.
         */
-        void modificar_siguiente(Nodo<Dato>* nuevoNodo);
-
-        ~Nodo(); //Suponiendo que nodo almacene punteros en el heap
+        void modificar_siguiente(Nodo<Tipo>* nuevoNodo);
 
     };
 
-template <typename Dato>
-Nodo<Dato>::Nodo(Dato elemento) {
+template <typename Tipo>
+Nodo<Tipo>::Nodo(Tipo elemento) {
     this->elemento = elemento;
     this->siguiente = nullptr;
 };
 
-template <typename Dato>
-Dato Nodo<Dato>::obtener_elemento(){
+template <typename Tipo>
+Tipo Nodo<Tipo>::obtener_elemento(){
     return elemento;
 };
 
-template <typename Dato>
-Nodo<Dato>* Nodo<Dato>::obtener_siguiente(){
+template <typename Tipo>
+Nodo<Tipo>* Nodo<Tipo>::obtener_siguiente(){
     return siguiente;
 };
 
-template <typename Dato>
-void Nodo<Dato>::modificar_siguiente(Nodo<Dato>* nuevoNodo){
+template <typename Tipo>
+void Nodo<Tipo>::modificar_siguiente(Nodo<Tipo>* nuevoNodo){
     siguiente = nuevoNodo;
-};
-
-template <typename Dato>
-Nodo<Dato>::~Nodo(){ 
-    delete elemento; //Asumiendo que elemento es un puntero a un objeto instanciado en memoria dinamica
 };
 
 #endif // NODO_H

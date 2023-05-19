@@ -2,16 +2,21 @@
 #define MENU_H
 
 #include <iostream>
-
+#include "claseEquipos.h"
 class Menu {
-public:
-    Menu();
+    private:
+        Equipos* equipos;
+        
+        void mostrar();
+        
+        int elegir_opcion();
+        
+        void ejecutarAccion(const int &opcionElegida);
+        
+    public:
+        Menu(Equipos* equipos);
 
-    void mostrar();
-    
-    int elegir_opcion();
-    
-    void ejecutarAccion(const int &opcionSeleccionada);
-};
+        void abrir();
+    };
 
 #endif // MENU_H

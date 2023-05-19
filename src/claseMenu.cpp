@@ -2,9 +2,12 @@
 
 using namespace std;
 
-Menu::Menu() {}
+Menu::Menu(Equipos* equipos) {
+    this->equipos = equipos;
+}
 
 void Menu::mostrar() {
+    cout << "  =  =  =  M E N U  =  =  =  " << endl;
     cout << "1.Listar equipos." << endl;
     cout << "2.Mostrar los equipos en primer, segundo y tercer lugar." << endl;
     cout << "3.Buscar equipo por nombre." << endl;
@@ -14,14 +17,17 @@ void Menu::mostrar() {
 
 int Menu::elegir_opcion() {
     int opcion;
+
     std::cout << "Seleccione una opción: ";
     std::cin >> opcion;
+    
     return opcion;
 }
 
 void Menu::ejecutarAccion(const int &opcionElegida){
-    switch (opcionElegida) {
+    switch(opcionElegida) {
         case 1:
+            equipos->mostrar_paises();
             break;
 
         case 2:
@@ -33,8 +39,23 @@ void Menu::ejecutarAccion(const int &opcionElegida){
         case 4:
             break;
 
+        case 5:
+            cout << "Saliendo del programa..." << endl;
+            break;
+            
         default:
             std::cout << "Opción inválida" << std::endl;
             break;
     }
+}
+
+void Menu::abrir(){
+    int opcionElegida;
+
+    do{
+        mostrar();
+        opcionElegida = elegir_opcion();
+        ejecutarAccion(opcionElegida);
+
+    }while(opcionElegida != 5);
 }
