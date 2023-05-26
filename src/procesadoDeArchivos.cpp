@@ -10,31 +10,21 @@ void cargar_archivo_equipos(Equipos* equipos) {
     if(archivo.is_open()) {
         while(getline(archivo, linea)){
 
-            Pais nuevoPais = procesar_linea_equipos(linea);
+            Pais* nuevoPais = procesar_linea_equipos(linea);
             equipos->insertar_por_alfabeto(nuevoPais);
         }
+
+        archivo.close();
     }
     else {
         cout << "No se pudo abrir el archivo" << endl;
     }
-
-    archivo.close();
 }
 
-bool verificar_datos_equipo(vector<string> &datosEquipo){
-    bool datosValidos = true;
-
-    if(datosEquipo.size() != 2 || datosEquipo[NOMBRE] == "" || datosEquipo[GRUPO] == ""){
-        datosValidos = false;
-    }
-
-    return datosValidos;
-}
-
-Pais procesar_linea_equipos(const string& linea){
+Pais* procesar_linea_equipos(const string& linea){
     vector<string> datosEquipo;
     string dato;
-    Pais nuevoPais;
+    Pais* nuevoPais = nullptr;
 
     if(linea != ""){ // Para evitar lineas vacias
 
@@ -56,52 +46,61 @@ Pais procesar_linea_equipos(const string& linea){
         datosEquipo.push_back(dato); //Agrego el último dato
 
         if(verificar_datos_equipo(datosEquipo)){ //Chequeo que los datos leídos sean válidos
-            nuevoPais = Pais(datosEquipo[NOMBRE], datosEquipo[GRUPO]);
+            nuevoPais = new Pais(datosEquipo[NOMBRE], datosEquipo[GRUPO]);
+            cout << "Se creó un nuevo país en la dirección: " << nuevoPais << endl;
         }
     }
 
     return nuevoPais;
 }
 
-/*void procesar_resultados(const string &linea, const int &fase, Equipos &equipos){
-    vector<string> lineaProcesada; //equipo1,goles1,penales1,equipo2,goles2,penales2
+void procesar_resultados(const string &linea, const string &fase, Equipos* equipos){
+    vector<string> lineaProcesada;
     string palabra;
 
     for (char c : linea){
-        if (c != ','){
-            palabra += c;
-        }
 
-        else if(palabra == "-1"){
-            palabra = "";
-        }
-        
-        else {
-            lineaProcesada.push_back(palabra);
-            palabra = "";
+        if(linea != ""){ // Para evitar lineas vacias
+
+            if (c == ','){
+                lineaProcesada.push_back(palabra);
+                palabra = "";
+            }
+            
+            else{
+                palabra += c;
+            }
         }
     }
+    lineaProcesada.push_back(palabra); //Agrego la ultima palabra
 
-    if(palabra != "-1"){
-        lineaProcesada.push_back(palabra); //Agrego la ultima palabra
+    if(verificar_datos_resultados(lineaProcesada, fase)){ // Chequeo que los datos leídos sean válidos  
+        equipos->actualizar_fases(lineaProcesada, fase);
     }
-
-    equipos.actualizar_datos(lineaProcesada, fase);
 }
 
-void cargar_archivo_resultados(Equipos &equipos){
-    string linea;
-    int fase;
-    ifstream archivo(ARCHIVO_RESULTADOS);
-    while(getline(archivo, linea)){
+void cargar_archivo_resultados(Equipos* equipos){
+    string linea, fase;
 
-        if(verificar_fase(linea)){
-            fase = linea_a_fase(linea);
-        }
-        else{
-            procesar_resultados(linea, fase, equipos);
+    ifstream archivo(ARCHIVO_RESULTADOS);
+
+    if(archivo.is_open()){
+
+        while(getline(archivo, linea)){
+
+            if(es_una_fase(linea)){
+                fase = linea;
+            }
+
+            else{
+                procesar_resultados(linea, fase, equipos);
+            }
         }   
+
+        archivo.close();
     }
 
-    archivo.close();
-}*/
+    else{
+        cout << "No se pudo abrir el archivo" << endl;
+    }
+}

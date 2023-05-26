@@ -27,6 +27,8 @@ template <typename Tipo>
         */
         void modificar_siguiente(Nodo<Tipo>* nuevoNodo);
 
+        ~Nodo() = default;
+
     };
 
 template <typename Tipo>
