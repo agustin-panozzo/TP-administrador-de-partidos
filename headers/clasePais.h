@@ -33,14 +33,28 @@ class Pais {
         */
         const std::string obtener_grupo();
 
-        void actualizar_fase(std::vector<std::string> &lineaProcesada, const std::string &fase, Partido* &partido); //Paso el puntero por referencia
+        /*
+        Pre: -
+        Post: Actualiza las fases con los datos proporcionados por el archivo.
+        */
+        void actualizar_fase(std::vector<std::string> &lineaProcesada, const std::string &fase, Partido* &partido);
 
+        /*
+        Pre: -
+        Post: Devuelve un puntero a la fase indica, si no existe, devuelve nullptr.
+        */
         Fase* obtener_fase(const std::string &fase);
 
-        std::vector<Fase*> obtener_fases();
-
+        /*
+        Pre: -
+        Post: Verifica si el pais tiene la fase, si no la tiene la agrega.
+        */
         void verificar_fase(const std::string &fase);
 
+        /*
+        Pre: -
+        Post: Agrega la fase al pais.
+        */
         void agregar_fase(Fase* fase);
 
         ~Pais();

@@ -11,6 +11,10 @@ class Partido {
     public:
         explicit Partido(std::string pais1, int goles1, std::string pais2, int goles2);
 
+        /*
+        Pre: -
+        Post: Devuelve los datos del partido.
+        */
         std::string obtener_datos();
 
         ~Partido() = default;

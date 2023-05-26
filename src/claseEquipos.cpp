@@ -53,7 +53,7 @@ void Equipos::mostrar_paises(){
 
 Pais* Equipos::obtener_pais(string &nombrePais){
     Nodo<Pais*>* nodoActual = primero;
-    Pais* paisActual;
+    Pais* paisActual = nullptr;
     bool paisEncontrado = false;
 
     while(nodoActual != nullptr && paisEncontrado == false){
@@ -75,7 +75,7 @@ void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fas
     Pais* pais1 = obtener_pais(lineaProcesada[NOMBRE_PAIS_1]);
     Pais* pais2 = obtener_pais(lineaProcesada[NOMBRE_PAIS_2]);
 
-    partidos.emplace_back(generar_partido(lineaProcesada, fase));
+    partidos.push_back(generar_partido(lineaProcesada, fase));
 
     pais1->actualizar_fase(lineaProcesada, fase, partidos.back());
     pais2->actualizar_fase(lineaProcesada, fase, partidos.back());

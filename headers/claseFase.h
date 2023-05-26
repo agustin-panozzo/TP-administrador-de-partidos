@@ -12,17 +12,31 @@ class Fase {
         std::vector<Partido**> partidos;
 
     public:
-        Fase(const std::string &nombreFase);
+        Fase(const std::string nombreFase);
 
+        /*
+        Pre: -
+        Post: Devuelve el nombre de la fase.
+        */
         std::string obtener_nombre();
 
+        /*
+        Pre: -
+        Post: Devuelve el puntaje de la fase.
+        */
         int obtener_puntaje();
 
+        /*
+        Pre: -
+        Post: Agrega un partido a la fase.
+        */
         void agregar_partido(Partido* &partido);
 
+        /*
+        Pre: -
+        Post: Devuelve un vector con los partidos de la fase.
+        */
         std::vector<Partido**> obtener_partidos();
-
-        void nombre_pais1();
         
         ~Fase() = default;
 };

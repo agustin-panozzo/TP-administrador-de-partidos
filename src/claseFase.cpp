@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Fase::Fase(const string &nombreFase) {
+Fase::Fase(const string nombreFase) {
     this->nombreFase = nombreFase;
     this->puntajeFase = 0;
 }

@@ -7,7 +7,7 @@
 #include "manejoDeStrings.h"
 class Equipos : ListaEnlazada<Pais*>{
     private:
-        std::vector<Partido*> partidos;
+        std::vector<Partido*> partidos; // Acá almaceno todos los partidos jugados durante el mundial. 
 
     public:
         Equipos();
@@ -24,8 +24,16 @@ class Equipos : ListaEnlazada<Pais*>{
         */
         void mostrar_paises();
 
+        /*
+        Pre: -
+        Post: Devuelve un puntero al país indicado. Si no existe, devuelve nullptr.
+        */
         Pais* obtener_pais(std::string &nombrePais);
 
+        /*
+        Pre: -
+        Post: Actualiza los datos de las fases de los paises que participaron del partido.
+        */
         void actualizar_fases(std::vector<std::string> &lineaProcesada, const std::string &fase);
 
         ~Equipos();

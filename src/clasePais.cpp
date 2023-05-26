@@ -69,10 +69,6 @@ void Pais::actualizar_fase(vector<string> &lineaProcesada, const string &nombreF
     fase->agregar_partido(partido);
 }
 
-vector<Fase*> Pais::obtener_fases(){
-    return fases;
-}
-
 Pais::~Pais(){
     for(size_t i = 0; i < fases.size(); i++){
         cout << "Se borrará una fase en: " << fases[i] << endl;
