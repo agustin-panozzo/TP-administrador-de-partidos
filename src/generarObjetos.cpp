@@ -21,7 +21,7 @@ Partido* generar_partido(vector<string> &lineaProcesada, const string &nombreFas
     }
 
     else{
-        nuevoPartido = new PartidoSinPenales(
+        nuevoPartido = new Partido(
 
         lineaProcesada[NOMBRE_PAIS_1], 
         stoi(lineaProcesada[GOLES_1]), 

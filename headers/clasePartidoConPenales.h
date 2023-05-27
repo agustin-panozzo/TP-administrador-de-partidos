@@ -8,7 +8,11 @@ class PartidoConPenales : public Partido {
         int penales1, penales2;
 
     public:
-        PartidoConPenales(std::string pais1, int goles1, int penales1, std::string pais2, int goles2, int penales2);
+        explicit PartidoConPenales(std::string pais1, int goles1, int penales1, std::string pais2, int goles2, int penales2);
+
+        std::string obtener_ganador() override;
+
+        int obtener_puntaje(const std::string &nombrePais) override;
 
         ~PartidoConPenales() = default;
 };

@@ -2,6 +2,7 @@
 #define CLASE_PARTIDO_H
 
 #include <iostream>
+#include "manejoDeStrings.h"
 
 class Partido {
     protected:
@@ -13,11 +14,17 @@ class Partido {
 
         /*
         Pre: -
-        Post: Devuelve los datos del partido.
+        Post: Devuelve el nombre del pais ganador.
         */
-        std::string obtener_datos();
+        virtual std::string obtener_ganador();
+        
+        /*
+        Pre: -
+        Post: Devuelve los puntos que obtuvo el pais en el partido
+        */
+        virtual int obtener_puntaje(const std::string &nombrePais);
 
-        ~Partido() = default;
+        virtual ~Partido() = default;
 };
 
 #endif // CLASE_PARTIDO_H

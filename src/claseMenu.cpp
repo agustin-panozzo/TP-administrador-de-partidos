@@ -18,8 +18,8 @@ void Menu::mostrar() {
 int Menu::elegir_opcion() {
     int opcion;
 
-    std::cout << "Seleccione una opción: ";
-    std::cin >> opcion;
+    cout << "Seleccione una opción: ";
+    cin >> opcion;
     
     return opcion;
 }
@@ -27,13 +27,15 @@ int Menu::elegir_opcion() {
 void Menu::ejecutarAccion(const int &opcionElegida){
     switch(opcionElegida) {
         case 1:
-            equipos->mostrar_paises();
+            mostrar_paises(equipos);
             break;
 
         case 2:
+            mostrar_top3(equipos);
             break;
 
         case 3:
+            //buscar_pais(equipos);
             break;
 
         case 4:
@@ -44,7 +46,7 @@ void Menu::ejecutarAccion(const int &opcionElegida){
             break;
             
         default:
-            std::cout << "Opción inválida" << std::endl;
+            cout << "Opción inválida" << endl;
             break;
     }
 }

@@ -13,9 +13,18 @@ class Pais {
         std::string grupo;
         std::string titulo;
         std::vector<Fase*> fases;
-        int puntajeTotal;
 
+        /*
+        Pre: -
+        Post: Devuelve true si la fase se encuentra en el vector fases, false en caso contrario.
+        */
         bool tiene_fase(const std::string &fase);
+
+        /*
+        Pre: El partido no debe estar empatado.
+        Post: Asigna un titulo al pais.
+        */
+        void asignar_titulo(Partido* partido, const std::string &nombreFase);
 
     public:
         Pais();
@@ -35,9 +44,15 @@ class Pais {
 
         /*
         Pre: -
+        Post: Devuelve el titulo del pais.
+        */
+        const std::string obtener_titulo();
+
+        /*
+        Pre: -
         Post: Actualiza las fases con los datos proporcionados por el archivo.
         */
-        void actualizar_fase(std::vector<std::string> &lineaProcesada, const std::string &fase, Partido* &partido);
+        void actualizar_fase(const std::string &fase, Partido* &partido);
 
         /*
         Pre: -
@@ -56,6 +71,12 @@ class Pais {
         Post: Agrega la fase al pais.
         */
         void agregar_fase(Fase* fase);
+
+        /*
+        Pre: -
+        Post: Devuelve el puntaje total del pais en el torneo.
+        */
+        int obtener_puntaje_total();
 
         ~Pais();
 };

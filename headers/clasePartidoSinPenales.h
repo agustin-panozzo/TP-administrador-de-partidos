@@ -5,7 +5,7 @@
 
 class PartidoSinPenales : public Partido {
     public:
-        PartidoSinPenales(std::string pais1, int goles1, std::string pais2, int goles2);
+        explicit PartidoSinPenales(std::string pais1, int goles1, std::string pais2, int goles2);
 
         ~PartidoSinPenales() = default;
 };

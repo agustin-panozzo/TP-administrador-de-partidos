@@ -7,7 +7,7 @@ template <typename Tipo>
         Tipo elemento;
         Nodo<Tipo>* siguiente;
 
-        Nodo(Tipo elemento);
+        explicit Nodo(Tipo elemento);
 
         /*
         Pre: -

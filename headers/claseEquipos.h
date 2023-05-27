@@ -5,7 +5,7 @@
 #include "clasePais.h"
 #include "constantes.h"
 #include "manejoDeStrings.h"
-class Equipos : ListaEnlazada<Pais*>{
+class Equipos : public ListaEnlazada<Pais*>{
     private:
         std::vector<Partido*> partidos; // Acá almaceno todos los partidos jugados durante el mundial. 
 
@@ -17,12 +17,6 @@ class Equipos : ListaEnlazada<Pais*>{
         Post: Inserta el puntero en la lista de paises ordenado por el nombre del pais.
         */
         void insertar_por_alfabeto(Pais* pais);
-
-        /*
-        Pre: -
-        Post: Muestra por pantalla los paises de la lista.
-        */
-        void mostrar_paises();
 
         /*
         Pre: -

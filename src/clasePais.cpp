@@ -6,14 +6,12 @@ Pais::Pais(){
     this->nombre = "";
     this->grupo = "";
     this->titulo = "";
-    this->puntajeTotal = 0;
 }
 
 Pais::Pais(const string nombrePais, const string grupo){
     this->nombre = nombrePais;
     this->grupo = grupo;
     this->titulo = "Sin titulo";
-    this->puntajeTotal = 0;
 }
 
 const string Pais::obtener_nombre(){
@@ -22,6 +20,10 @@ const string Pais::obtener_nombre(){
 
 const string Pais::obtener_grupo(){
     return grupo;
+}
+
+const string Pais::obtener_titulo(){
+    return titulo;
 }
 
 bool Pais::tiene_fase(const string &fase){
@@ -45,7 +47,7 @@ void Pais::agregar_fase(Fase* fase){
 
 void Pais::verificar_fase(const std::string &fase){
     if(!tiene_fase(fase)){
-        Fase* nuevaFase = new Fase(fase);
+        Fase* nuevaFase = new Fase(fase, nombre);
         cout << "Se creó una fase con el nombre " << fase << " en: " << nuevaFase << endl;
         agregar_fase(nuevaFase);
     }
@@ -63,10 +65,49 @@ Fase* Pais::obtener_fase(const std::string &nombreFase){
     return fase;
 }
 
-void Pais::actualizar_fase(vector<string> &lineaProcesada, const string &nombreFase, Partido* &partido){
+void Pais::asignar_titulo(Partido* partido, const string &nombreFase){
+    if(comparar_strings(nombreFase, "FINAL")){
+
+        if(comparar_strings(nombre, partido->obtener_ganador())){
+            titulo = "CAMPEON";
+        }
+
+        else{
+            titulo = "SUBCAMPEON";
+        }
+    }
+
+    else{
+
+        if(comparar_strings(nombre, partido->obtener_ganador())){
+            titulo = "TERCER PUESTO";
+        }
+
+        else{
+            titulo = "CUARTO PUESTO";
+        }
+    }
+}
+
+void Pais::actualizar_fase(const string &nombreFase, Partido* &partido){
+    if(comparar_strings(nombreFase, "FINAL") || comparar_strings(nombreFase, "TERCER PUESTO")){
+        asignar_titulo(partido, nombreFase);
+    };
+
     verificar_fase(nombreFase); // Verifico si el pais tiene la fase, si no la tiene la agrega. 
     Fase* fase = obtener_fase(nombreFase);
     fase->agregar_partido(partido);
+    fase->calcular_puntaje_fase(); // Cada vez que se agrega un partido, debo recalcular el puntaje.
+}
+
+int Pais::obtener_puntaje_total(){
+    int puntajeTotal = 0;
+
+    for(size_t i = 0; i < fases.size(); i++){
+        puntajeTotal += fases[i]->obtener_puntaje();
+    }
+
+    return puntajeTotal;
 }
 
 Pais::~Pais(){

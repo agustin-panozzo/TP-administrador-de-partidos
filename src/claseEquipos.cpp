@@ -37,20 +37,6 @@ void Equipos::insertar_por_alfabeto(Pais* pais){ //Este método se podría hacer
     insertar(pais, indice);
 }
 
-
-void Equipos::mostrar_paises(){
-    Pais* paisActual;
-    cout << "\n  =  =  =  LISTA DE PAISES  =  =  =  " << endl;
-
-    for(int i = 1; i <= tamanio; i++){
-        
-        paisActual = obtener_dato(i);
-        cout << "Nombre: " << paisActual->obtener_nombre() << " Grupo: " << paisActual->obtener_grupo() << endl;
-    }
-
-    cout << endl;
-}
-
 Pais* Equipos::obtener_pais(string &nombrePais){
     Nodo<Pais*>* nodoActual = primero;
     Pais* paisActual = nullptr;
@@ -77,8 +63,8 @@ void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fas
 
     partidos.push_back(generar_partido(lineaProcesada, fase));
 
-    pais1->actualizar_fase(lineaProcesada, fase, partidos.back());
-    pais2->actualizar_fase(lineaProcesada, fase, partidos.back());
+    pais1->actualizar_fase(fase, partidos.back()); // El tercer parámetro es el partido que se acaba de agregar
+    pais2->actualizar_fase(fase, partidos.back());
 }
 
 Equipos::~Equipos(){

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "claseEquipos.h"
-#include <cstdlib> //Lo uso para limpiar la consola
+#include "funcionesMenu.h"
 class Menu {
     private:
         Equipos* equipos;
@@ -27,7 +27,7 @@ class Menu {
         void ejecutarAccion(const int &opcionElegida);
                 
     public:
-        Menu(Equipos* equipos);
+        explicit Menu(Equipos* equipos);
 
         /*
         Pre: -

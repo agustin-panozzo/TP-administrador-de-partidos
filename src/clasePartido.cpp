@@ -9,10 +9,39 @@ Partido::Partido(string pais1, int goles1, string pais2, int goles2){
     this->goles2 = goles2;
 };
 
-string Partido::obtener_datos(){
-    string datos = "";
+string Partido::obtener_ganador(){
+    string ganador;
 
-    datos += pais1 + " " + to_string(goles1) + " - " + to_string(goles2) + " " + pais2;
+    if (goles1 > goles2){
+        ganador = pais1;
+    }
 
-    return datos;
+    else if (goles2 > goles1){
+        ganador = pais2;
+    }
+
+    else{
+        ganador = "Empate";
+    }
+
+    return ganador;
 };
+
+int Partido::obtener_puntaje(const string &nombrePais){
+    string ganador = obtener_ganador();
+    int puntaje;
+
+    if(ganador == "Empate"){
+        puntaje = 1;
+    }
+
+    else if (comparar_strings(ganador, nombrePais)){ // Ganó por goles
+        puntaje = 3;
+    }
+
+    else {
+        puntaje = 0;
+    }
+
+    return puntaje;
+}

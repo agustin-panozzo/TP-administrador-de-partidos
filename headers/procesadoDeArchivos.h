@@ -29,6 +29,6 @@ void cargar_archivo_resultados(Equipos* equipos);
 Pre: -
 Post: Procesa la línea leída y carga los datos de los resultados en la clase Equipos
 */
-void procesar_resultados(const string &linea, const string &fase, Equipos* equipos);
+void procesar_resultados(const std::string &linea, const std::string &fase, Equipos* equipos);
 
 #endif // PROCESADO_DE_ARCHIVOS_H
