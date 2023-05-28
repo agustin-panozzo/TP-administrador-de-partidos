@@ -39,14 +39,16 @@ void Equipos::insertar_por_alfabeto(Pais* pais){ //Este método se podría hacer
 
 Pais* Equipos::obtener_pais(string &nombrePais){
     Nodo<Pais*>* nodoActual = primero;
-    Pais* paisActual = nullptr;
+    Pais* paisBuscado = nullptr;
+    Pais* aux = nullptr;
     bool paisEncontrado = false;
 
     while(nodoActual != nullptr && paisEncontrado == false){
-        paisActual = nodoActual->obtener_elemento();
+        aux = nodoActual->obtener_elemento();
 
-        if(comparar_strings(paisActual->obtener_nombre(), nombrePais)){
+        if(comparar_strings(aux->obtener_nombre(), nombrePais)){
             paisEncontrado = true;
+            paisBuscado = nodoActual->obtener_elemento();
         }
 
         else{
@@ -54,7 +56,7 @@ Pais* Equipos::obtener_pais(string &nombrePais){
         }
     }
 
-    return paisActual;
+    return paisBuscado;
 };
 
 void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fase){

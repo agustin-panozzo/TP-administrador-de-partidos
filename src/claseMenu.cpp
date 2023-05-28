@@ -35,7 +35,7 @@ void Menu::ejecutarAccion(const int &opcionElegida){
             break;
 
         case 3:
-            //buscar_pais(equipos);
+            buscar_pais(equipos);
             break;
 
         case 4:

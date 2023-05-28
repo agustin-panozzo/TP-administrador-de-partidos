@@ -22,4 +22,10 @@ Post: Muestra por pantalla los tres finalistas del mundial y los puntos totales.
 */
 void mostrar_top3(Equipos* equipos);
 
+/*
+Pre: -
+Post: Solicita al usuario un pais y muestra por pantalla sus datos.
+*/
+void buscar_pais(Equipos* equipos);
+
 #endif // FUNCIONES_MENU_H

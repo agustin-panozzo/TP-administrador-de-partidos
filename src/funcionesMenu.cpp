@@ -56,3 +56,31 @@ void mostrar_top3(Equipos* equipos){
 
     cout << endl;
 }
+
+string obtener_nombre_ultima_fase(Pais* pais){
+    Fase* ultimaFase = pais->obtener_ultima_fase();
+
+    return ultimaFase->obtener_nombre();
+}
+
+void buscar_pais(Equipos* equipos){
+    Pais* paisBuscado = nullptr;
+    string nombrePais;
+
+    cout << "\n  =  =  =  BUSCAR PAIS  =  =  =  " << endl;
+    cout << "Ingrese el nombre del pais: ";
+    getline(cin >> ws, nombrePais);
+
+    paisBuscado = equipos->obtener_pais(nombrePais);
+
+    if(paisBuscado != nullptr){
+        cout << "Nombre: " << paisBuscado->obtener_nombre() << endl; 
+        cout << "Grupo: " << paisBuscado->obtener_grupo() << endl;
+        cout << "Fase alcanzada: " << obtener_nombre_ultima_fase(paisBuscado) << endl;
+        cout << "Titulo: " << paisBuscado->obtener_titulo() << endl;
+    }
+
+    else{
+        cout << "No hubo coincidencias." << endl;
+    }
+}

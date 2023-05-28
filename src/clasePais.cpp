@@ -110,6 +110,38 @@ int Pais::obtener_puntaje_total(){
     return puntajeTotal;
 }
 
+size_t Pais::fase_a_entero(Fase* fase){
+    bool faseEncontrada = false;
+    size_t indiceFase = -1;
+
+    for(size_t i = 0; i < CANTIDAD_FASES; i++){
+        if(comparar_strings(fase->obtener_nombre(), FASES[i]) && !faseEncontrada){
+            indiceFase = i;
+            faseEncontrada = true;
+        }
+    }
+
+    return indiceFase;
+}
+
+Fase* Pais::obtener_ultima_fase(){
+    Fase* ultimaFase = nullptr;
+
+    size_t faseActual;
+    size_t faseMayor = 0;
+
+    for(size_t i = 0; i < fases.size(); i++){
+        faseActual = fase_a_entero(fases[i]); //Lo convierto a su equivalente en entero para poder comparar
+
+        if(faseActual > faseMayor){
+            faseMayor = faseActual;
+            ultimaFase = obtener_fase(FASES[faseMayor]);
+        }
+    }
+
+    return ultimaFase;
+}
+
 Pais::~Pais(){
     for(size_t i = 0; i < fases.size(); i++){
         cout << "Se borrará una fase en: " << fases[i] << endl;

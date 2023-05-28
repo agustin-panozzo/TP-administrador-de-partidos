@@ -26,6 +26,12 @@ class Pais {
         */
         void asignar_titulo(Partido* partido, const std::string &nombreFase);
 
+        /*
+        Pre: -
+        Post: Devuelve la fase en su equivalencia numérica. Si la fase no es válida, devuelve -1.
+        */
+        size_t fase_a_entero(Fase* fase);
+
     public:
         Pais();
         explicit Pais(const std::string nombre, const std::string grupo);
@@ -77,6 +83,12 @@ class Pais {
         Post: Devuelve el puntaje total del pais en el torneo.
         */
         int obtener_puntaje_total();
+
+        /*
+        Pre: -
+        Post: Devuelve un puntero a la ultima fase que jugó el pais. Si no jugó ninguna, devuelve nullptr.
+        */
+        Fase* obtener_ultima_fase();
 
         ~Pais();
 };
