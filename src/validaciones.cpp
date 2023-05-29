@@ -33,11 +33,7 @@ bool verificar_datos_equipo(vector<string> &datosEquipo){
 bool verificar_datos_resultados(std::vector<std::string> &datosResultados, const std::string &fase){
     bool datosValidos = true;
 
-    if(vector_esta_vacio(datosResultados)){
-        datosValidos = false;
-    }
-
-    else if( (comparar_strings(fase, "GRUPOS") && datosResultados.size() != 4) || (!comparar_strings(fase, "GRUPOS") && datosResultados.size() != 6) ){ //Si es fase de grupos, tiene que tener 4 elementos, sino 6
+    if(vector_esta_vacio(datosResultados) || datosResultados.size() != 6){
         datosValidos = false;
     }
 

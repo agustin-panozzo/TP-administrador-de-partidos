@@ -47,7 +47,7 @@ Pais* procesar_linea_equipos(const string& linea){
 
         if(verificar_datos_equipo(datosEquipo)){ //Chequeo que los datos leídos sean válidos
             nuevoPais = new Pais(datosEquipo[NOMBRE], datosEquipo[GRUPO]);
-            cout << "Se creó un nuevo país en la dirección: " << nuevoPais << endl;
+            cout << "Se creo un nuevo pais en la direccion: " << nuevoPais << endl;
         }
     }
 
@@ -73,6 +73,12 @@ void procesar_resultados(const string &linea, const string &fase, Equipos* equip
         }
     }
     lineaProcesada.push_back(palabra); //Agrego la ultima palabra
+
+// Si es la fase de grupos, agrego los penales como -1. Esto es para dar consistencia a la estructura del vector y no se tiene en cuenta a la hora de guardar los datos.    
+    if(comparar_strings(fase, "GRUPOS")){ 
+        lineaProcesada.insert(lineaProcesada.begin() + PENALES_1, "-1");
+        lineaProcesada.insert(lineaProcesada.begin() + PENALES_2, "-1");
+    }
 
     if(verificar_datos_resultados(lineaProcesada, fase)){ // Chequeo que los datos leídos sean válidos  
         equipos->actualizar_fases(lineaProcesada, fase);

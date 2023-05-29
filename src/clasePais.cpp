@@ -48,7 +48,7 @@ void Pais::agregar_fase(Fase* fase){
 void Pais::verificar_fase(const std::string &fase){
     if(!tiene_fase(fase)){
         Fase* nuevaFase = new Fase(fase, nombre);
-        cout << "Se creó una fase con el nombre " << fase << " en: " << nuevaFase << endl;
+        cout << "Se creo una fase con el nombre " << fase << " en: " << nuevaFase << endl;
         agregar_fase(nuevaFase);
     }
 }
@@ -90,6 +90,7 @@ void Pais::asignar_titulo(Partido* partido, const string &nombreFase){
 }
 
 void Pais::actualizar_fase(const string &nombreFase, Partido* &partido){
+    cout << nombre << endl;
     if(comparar_strings(nombreFase, "FINAL") || comparar_strings(nombreFase, "TERCER PUESTO")){
         asignar_titulo(partido, nombreFase);
     };
@@ -129,11 +130,10 @@ Fase* Pais::obtener_ultima_fase(){
 
     size_t faseActual;
     size_t faseMayor = 0;
-
     for(size_t i = 0; i < fases.size(); i++){
         faseActual = fase_a_entero(fases[i]); //Lo convierto a su equivalente en entero para poder comparar
 
-        if(faseActual > faseMayor){
+        if(faseActual >= faseMayor){
             faseMayor = faseActual;
             ultimaFase = obtener_fase(FASES[faseMayor]);
         }
@@ -144,8 +144,7 @@ Fase* Pais::obtener_ultima_fase(){
 
 Pais::~Pais(){
     for(size_t i = 0; i < fases.size(); i++){
-        cout << "Se borrará una fase en: " << fases[i] << endl;
+        cout << "Se borrara una fase en: " << fases[i] << endl;
         delete fases[i];
-        cout << "La fase se eliminó correctamente" << endl;
     }
 }

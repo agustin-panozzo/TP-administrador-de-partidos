@@ -71,13 +71,13 @@ void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fas
 
 Equipos::~Equipos(){
     for(size_t i = 0; i < partidos.size(); i++){
-        cout << "Se eliminó un partido en: " << partidos[i] << endl;
+        cout << "Se elimino un partido en: " << partidos[i] << endl;
         delete partidos[i];
         partidos[i] = nullptr;
     }
 
     for(int i = 1; i <= tamanio; i++){ // Elimino los paises
         delete obtener_dato(i);
-        cout << "Se eliminó un pais en: " << obtener_dato(i) << endl;
+        cout << "Se elimino un pais en: " << obtener_dato(i) << endl;
     }
 }

@@ -2,6 +2,14 @@
 
 using namespace std;
 
+void limpiar_pantalla() {
+#ifdef _WIN32
+  system("cls");
+#else
+  system("clear");
+#endif
+}
+
 void mostrar_paises(Equipos* equipos){
     Pais* paisActual;
     cout << "\n  =  =  =  LISTA DE PAISES  =  =  =  " << endl;
@@ -43,15 +51,15 @@ void mostrar_top3(Equipos* equipos){
     cout << "\n  =  =  =  TOP 3  =  =  =  " << endl;
 
     if(campeon != nullptr){
-        cout << "1er puesto: " << campeon->obtener_nombre() << " Puntos total: " << campeon->obtener_puntaje_total() << endl;
+        cout << "1er puesto: " << campeon->obtener_nombre() << " Puntaje total: " << campeon->obtener_puntaje_total() << endl;
     }
 
     if(subcampeon != nullptr){
-        cout << "2do puesto: " << subcampeon->obtener_nombre() << " Puntos total: " << subcampeon->obtener_puntaje_total() << endl;
+        cout << "2do puesto: " << subcampeon->obtener_nombre() << " Puntaje total: " << subcampeon->obtener_puntaje_total() << endl;
     }
 
     if(tercerpuesto != nullptr){
-        cout << "3er puesto: " << tercerpuesto->obtener_nombre() << " Puntos total: " << tercerpuesto->obtener_puntaje_total() << endl;
+        cout << "3er puesto: " << tercerpuesto->obtener_nombre() << " Puntaje total: " << tercerpuesto->obtener_puntaje_total() << endl;
     }
 
     cout << endl;
@@ -74,6 +82,8 @@ void buscar_pais(Equipos* equipos){
     paisBuscado = equipos->obtener_pais(nombrePais);
 
     if(paisBuscado != nullptr){
+        limpiar_pantalla();
+        cout << "\n  =  =  =  PAIS ENCONTRADO  =  =  =  " << endl;
         cout << "Nombre: " << paisBuscado->obtener_nombre() << endl; 
         cout << "Grupo: " << paisBuscado->obtener_grupo() << endl;
         cout << "Fase alcanzada: " << obtener_nombre_ultima_fase(paisBuscado) << endl;

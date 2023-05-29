@@ -18,13 +18,15 @@ void Menu::mostrar() {
 int Menu::elegir_opcion() {
     int opcion;
 
-    cout << "Seleccione una opción: ";
+    cout << "Seleccione una opcion: ";
     cin >> opcion;
     
     return opcion;
 }
 
 void Menu::ejecutarAccion(const int &opcionElegida){
+    limpiar_pantalla();
+
     switch(opcionElegida) {
         case 1:
             mostrar_paises(equipos);

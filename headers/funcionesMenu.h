@@ -6,6 +6,12 @@
 
 /*
 Pre: -
+Post: Limpia la pantalla.
+*/
+void limpiar_pantalla();
+
+/*
+Pre: -
 Post: Muestra por pantalla la lista de paises y el grupo al que pertenecen.
 */
 void mostrar_paises(Equipos* equipos);
@@ -21,6 +27,12 @@ Pre: -
 Post: Muestra por pantalla los tres finalistas del mundial y los puntos totales.
 */
 void mostrar_top3(Equipos* equipos);
+
+/*
+Pre: -
+Post: Devuelve el nombre de la ultima fase en la que participo el pais.
+*/
+std::string obtener_nombre_ultima_fase(Pais* pais);
 
 /*
 Pre: -

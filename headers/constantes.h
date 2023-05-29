@@ -12,7 +12,7 @@ const int CANTIDAD_TITULOS = 4;
 enum DATOS_EQUIPO {NOMBRE, GRUPO};
 enum DATOS_RESULTADOS {NOMBRE_PAIS_1, GOLES_1, PENALES_1, NOMBRE_PAIS_2, GOLES_2, PENALES_2};
 
-const std::string FASES[CANTIDAD_FASES] = {"Grupos", "Octavos", "Cuartos", "Semifinales", "Final", "Tercer Puesto"};
+const std::string FASES[CANTIDAD_FASES] = {"Grupos", "Octavos", "Cuartos", "Semifinal", "Final", "Tercer Puesto"};
 const std::string TITULOS[CANTIDAD_TITULOS] = {"Campeon", "Subcampeon", "Tercer Puesto", "Cuarto Puesto"};
 
 #endif // CONSTANTES_H
