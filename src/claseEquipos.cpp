@@ -62,11 +62,11 @@ Pais* Equipos::obtener_pais(string &nombrePais){
 void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fase){
     Pais* pais1 = obtener_pais(lineaProcesada[NOMBRE_PAIS_1]);
     Pais* pais2 = obtener_pais(lineaProcesada[NOMBRE_PAIS_2]);
-
+    
     partidos.push_back(generar_partido(lineaProcesada, fase));
 
-    pais1->actualizar_fase(fase, partidos.back()); // El tercer parámetro es el partido que se acaba de agregar
-    pais2->actualizar_fase(fase, partidos.back());
+    pais1->actualizar_fase(fase, partidos[partidos.size() - 1]);
+    pais2->actualizar_fase(fase, partidos[partidos.size() - 1]);
 }
 
 Equipos::~Equipos(){
