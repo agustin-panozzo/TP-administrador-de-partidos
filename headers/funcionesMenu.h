@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "claseEquipos.h"
+#include "grupos.h"
 
 /*
 Pre: -
@@ -39,5 +40,11 @@ Pre: -
 Post: Solicita al usuario un pais y muestra por pantalla sus datos.
 */
 void buscar_pais(Equipos* equipos);
+
+/*
+Pre: -
+Post: Muestra por pantalla los paises ordenados por puntaje en cada fase.
+*/
+void mostrar_por_fase(Equipos* equipos);
 
 #endif // FUNCIONES_MENU_H

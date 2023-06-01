@@ -90,7 +90,6 @@ void Pais::asignar_titulo(Partido* partido, const string &nombreFase){
 }
 
 void Pais::actualizar_fase(const string &nombreFase, Partido* &partido){
-    cout << nombre << endl;
     if(comparar_strings(nombreFase, "FINAL") || comparar_strings(nombreFase, "TERCER PUESTO")){
         asignar_titulo(partido, nombreFase);
     };
@@ -140,6 +139,23 @@ Fase* Pais::obtener_ultima_fase(){
     }
 
     return ultimaFase;
+}
+
+int Pais::obtener_puntaje_fase(const string &nombreFase){
+    Fase* fase = obtener_fase(nombreFase);
+    return fase->obtener_puntaje();
+}
+
+bool Pais::jugo_en_fase(const string &nombreFase){
+    bool jugo = false;
+
+    for(size_t i = 0; i < fases.size(); i++){
+        if(comparar_strings(fases[i]->obtener_nombre(), nombreFase)){
+            jugo = true;
+        }
+    }
+
+    return jugo;
 }
 
 Pais::~Pais(){

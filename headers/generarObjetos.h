@@ -3,7 +3,6 @@
 
 #include <vector>
 #include "clasePartidoConPenales.h"
-#include "clasePartidoSinPenales.h"
 #include "validaciones.h"
 #include "constantes.h"
 

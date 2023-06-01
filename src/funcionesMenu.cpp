@@ -94,3 +94,8 @@ void buscar_pais(Equipos* equipos){
         cout << "No hubo coincidencias." << endl;
     }
 }
+
+void mostrar_por_fase(Equipos* equipos){
+    mostrar_grupos_por_puntaje(equipos);
+    mostrar_eliminatorias_por_puntaje(equipos);
+}

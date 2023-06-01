@@ -5,7 +5,6 @@
 #include <fstream>
 #include "validaciones.h"
 #include "clasePartidoConPenales.h"
-#include "clasePartidoSinPenales.h"
 #include "claseEquipos.h"
 /*
 Pre: -

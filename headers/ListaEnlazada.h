@@ -52,6 +52,12 @@ template <typename Tipo>
             */
             int obtener_tamanio();
 
+            /*
+            Pre: -
+            Post: Vacía la lista.
+            */
+            void limpiar();
+
             ~ListaEnlazada();
     };
 
@@ -122,6 +128,13 @@ template <typename Tipo>
 void ListaEnlazada<Tipo>::mostrar_elementos(){
     for(int i = 1; i <= this->tamanio; i++){
         std::cout << this->obtener_dato(i) << std::endl;
+    }
+}
+
+template <typename Tipo>
+void ListaEnlazada<Tipo>::limpiar(){ //Esta función hace lo mismo que el destructor, pero se puede usar en cualquier momento que se quiera vaciar la lista.
+    while(!estaVacia()){
+        eliminar(1);
     }
 }
 

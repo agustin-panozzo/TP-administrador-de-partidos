@@ -12,6 +12,7 @@ void cargar_archivo_equipos(Equipos* equipos) {
 
             Pais* nuevoPais = procesar_linea_equipos(linea);
             equipos->insertar_por_alfabeto(nuevoPais);
+            equipos->agregar_grupo(nuevoPais->obtener_grupo());
         }
 
         archivo.close();

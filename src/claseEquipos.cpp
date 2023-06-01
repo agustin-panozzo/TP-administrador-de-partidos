@@ -7,31 +7,50 @@ Equipos::Equipos() : ListaEnlazada<Pais*>() {
     this->tamanio = 0;
 };
 
-void Equipos::insertar_por_alfabeto(Pais* pais){ //Este método se podría hacer con menos anidaciones pero intenté hacerlo lo más legible posible
+void Equipos::insertar_por_alfabeto(Pais* pais) {
     int indice = 1;
-    bool posicionEncontrada = false;
-    Nodo<Pais*>* nodoActual = primero;
+    string nombrePaisActual;
     string nombrePais = pais->obtener_nombre();
+    Nodo<Pais*>* nodoActual = primero;
+    bool posicionEncontrada = false;
 
-    if(nodoActual != nullptr){
-        string nombrePaisActual = nodoActual->obtener_elemento()->obtener_nombre();
+    while (nodoActual != nullptr && !posicionEncontrada) {
+        nombrePaisActual = nodoActual->obtener_elemento()->obtener_nombre();
 
-        if(nombrePais > nombrePaisActual){
-            indice = 2; // Comienzo a comparar desde el segundo elemento
-
-            while(nodoActual->obtener_siguiente() != nullptr && !posicionEncontrada){
-                string nombrePaisSiguiente = nodoActual->obtener_siguiente()->obtener_elemento()->obtener_nombre();
-
-                if(nombrePaisSiguiente < nombrePais){
-                    nodoActual = nodoActual->obtener_siguiente();
-                    indice++;
-                }
-
-                else{
-                    posicionEncontrada = true;
-                }
-            }
+        if (nombrePais > nombrePaisActual) {
+            indice++;
         }
+
+        else{
+            posicionEncontrada = true;
+        }
+
+        nodoActual = nodoActual->obtener_siguiente();
+    }
+
+    insertar(pais, indice);
+}
+
+
+void Equipos::insertar_por_puntaje_fase(Pais* pais, const string &fase) {
+    int indice = 1;
+    int puntajePaisActual;
+    int puntajePais = pais->obtener_puntaje_fase(fase);
+    Nodo<Pais*>* nodoActual = primero;
+    bool posicionEncontrada = false;
+
+    while (nodoActual != nullptr && !posicionEncontrada) {
+        puntajePaisActual = nodoActual->obtener_elemento()->obtener_puntaje_fase(fase);
+
+        if (puntajePais < puntajePaisActual) {
+            indice++;
+        }
+        
+        else{
+            posicionEncontrada = true;
+        }
+
+        nodoActual = nodoActual->obtener_siguiente();
     }
 
     insertar(pais, indice);
@@ -67,6 +86,31 @@ void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fas
 
     pais1->actualizar_fase(fase, partidos[partidos.size() - 1]);
     pais2->actualizar_fase(fase, partidos[partidos.size() - 1]);
+}
+
+bool Equipos::existe_grupo(const string &grupo){
+    bool grupoEncontrado = false;
+    size_t indice = 0;
+
+    while(indice < grupos.size() && !grupoEncontrado){
+        if(comparar_strings(grupos[indice], grupo)){
+            grupoEncontrado = true;
+        }
+
+        indice++;
+    }
+
+    return grupoEncontrado;
+}
+
+void Equipos::agregar_grupo(const string &grupo){
+    if(!existe_grupo(grupo)){
+        insertar_en_vector_ordenado(grupos, grupo);
+    }
+}
+
+vector<string> Equipos::obtener_grupos(){
+    return grupos;
 }
 
 Equipos::~Equipos(){

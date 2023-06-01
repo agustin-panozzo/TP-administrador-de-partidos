@@ -7,7 +7,7 @@ Menu::Menu(Equipos* equipos) {
 }
 
 void Menu::mostrar() {
-    cout << "  =  =  =  M E N U  =  =  =  " << endl;
+    cout << "=  =  =  =  =  M E N U  =  =  =  =  =" << endl;
     cout << "1.Listar equipos." << endl;
     cout << "2.Mostrar los equipos en primer, segundo y tercer lugar." << endl;
     cout << "3.Buscar equipo por nombre." << endl;
@@ -41,6 +41,7 @@ void Menu::ejecutarAccion(const int &opcionElegida){
             break;
 
         case 4:
+            mostrar_por_fase(equipos);
             break;
 
         case 5:

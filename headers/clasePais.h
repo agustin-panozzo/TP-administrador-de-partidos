@@ -90,6 +90,18 @@ class Pais {
         */
         Fase* obtener_ultima_fase();
 
+        /*
+        Pre: El país debe de haber jugado la fase.
+        Post: Devuelve el puntaje obtenido en la fase indicada.
+        */
+        int obtener_puntaje_fase(const std::string &nombreFase);
+
+        /*
+        Pre: -
+        Post: Devuelve true si el pais jugó en la fase indicada. En caso contrario, devuelve false.
+        */
+        bool jugo_en_fase(const std::string &fase);
+
         ~Pais();
 };
 
