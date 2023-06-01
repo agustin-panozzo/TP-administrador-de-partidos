@@ -6,7 +6,8 @@
 #include "funcionesMenu.h"
 class Menu {
     private:
-        Equipos* equipos;
+        int cantidadOpciones;
+        std::vector<std::string> opciones;
         
         /*
         Pre: -
@@ -24,10 +25,12 @@ class Menu {
         Pre: -
         Post: Ejecuta la accion elegida por el usuario.
         */
-        void ejecutarAccion(const int &opcionElegida);
+        virtual void ejecutar_accion(const int &opcionElegida) = 0;
                 
     public:
-        explicit Menu(Equipos* equipos);
+        // Pre: La ultima opción del vector opciones debe indicar la salida del programa.
+        explicit Menu(const int cantidadOpciones, const std::string opciones[]);
+        Menu();
 
         /*
         Pre: -

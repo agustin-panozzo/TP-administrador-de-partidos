@@ -2,17 +2,23 @@
 
 using namespace std;
 
-Menu::Menu(Equipos* equipos) {
-    this->equipos = equipos;
+Menu::Menu(){
+    this->cantidadOpciones = 0;
+}
+
+Menu::Menu(const int cantidadOpciones, const string opciones[]) {
+    this->cantidadOpciones = cantidadOpciones;
+    
+    for(int i = 0; i < cantidadOpciones; i++) {
+        this->opciones.push_back(opciones[i]);
+    }
 }
 
 void Menu::mostrar() {
     cout << "=  =  =  =  =  M E N U  =  =  =  =  =" << endl;
-    cout << "1.Listar equipos." << endl;
-    cout << "2.Mostrar los equipos en primer, segundo y tercer lugar." << endl;
-    cout << "3.Buscar equipo por nombre." << endl;
-    cout << "4.Mostrar por fase los paises ordenados por puntaje" << endl;
-    cout << "5.Salir." << endl;
+    for(int i = 0; i < cantidadOpciones; i++) {
+        cout << (i + 1) << "." << opciones[i] << endl;
+    }
 }
 
 int Menu::elegir_opcion() {
@@ -24,43 +30,13 @@ int Menu::elegir_opcion() {
     return opcion;
 }
 
-void Menu::ejecutarAccion(const int &opcionElegida){
-    limpiar_pantalla();
-
-    switch(opcionElegida) {
-        case 1:
-            mostrar_paises(equipos);
-            break;
-
-        case 2:
-            mostrar_top3(equipos);
-            break;
-
-        case 3:
-            buscar_pais(equipos);
-            break;
-
-        case 4:
-            mostrar_por_fase(equipos);
-            break;
-
-        case 5:
-            cout << "Saliendo del programa..." << endl;
-            break;
-            
-        default:
-            cout << "Opción inválida" << endl;
-            break;
-    }
-}
-
 void Menu::abrir(){
     int opcionElegida;
 
     do{
         mostrar();
         opcionElegida = elegir_opcion();
-        ejecutarAccion(opcionElegida);
+        ejecutar_accion(opcionElegida);
 
-    }while(opcionElegida != 5);
+    }while(opcionElegida != cantidadOpciones); // La ultima opción siempre es la de salir
 }
