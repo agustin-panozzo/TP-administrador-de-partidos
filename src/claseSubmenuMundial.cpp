@@ -21,6 +21,7 @@ void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
             break;
 
         case 3:
+            //eliminar_partido(equipos); -> equipos->obtener_partido();
             break;
             
         case 4:

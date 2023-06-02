@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "claseEquipos.h"
-#include "funcionesMenu.h"
+#include "opcionesMenu.h"
 class Menu {
     private:
         int cantidadOpciones;

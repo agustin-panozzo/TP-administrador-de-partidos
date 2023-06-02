@@ -1,4 +1,4 @@
-#include "../headers/funcionesMenu.h"
+#include "../headers/opcionesMenu.h"
 
 using namespace std;
 

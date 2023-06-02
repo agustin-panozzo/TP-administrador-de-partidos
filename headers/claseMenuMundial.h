@@ -8,7 +8,6 @@
 class MenuMundial : public Menu {
     private:
         Equipos* equipos;
-
         SubmenuMundial submenu;
 
         void ejecutar_accion(const int &opcionElegida) override;

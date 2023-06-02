@@ -1,0 +1,4 @@
+#ifndef MOSTRAR_EN_CONSOLA_H
+#define MOSTRAR_EN_CONSOLA_H
+
+#endif // MOSTRAR_EN_CONSOLA_H
