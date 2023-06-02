@@ -25,5 +25,4 @@ void insertar_en_vector_ordenado(std::vector<Tipo> &vector, const Tipo &elemento
 
     vector.insert(vector.begin() + indice, elemento);
 }
-
 #endif // ORDENAMIENTO_H

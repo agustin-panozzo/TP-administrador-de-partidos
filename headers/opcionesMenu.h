@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "claseEquipos.h"
-#include "grupos.h"
+#include "mostrarEnConsola.h"
 
 /*
 Pre: -
