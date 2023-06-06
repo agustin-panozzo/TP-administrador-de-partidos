@@ -14,6 +14,8 @@ class PartidoConPenales : public Partido {
 
         int obtener_puntaje(const std::string &nombrePais) override;
 
+        std::vector<std::string> exportar_partido() override;
+
         ~PartidoConPenales() = default;
 };
 

@@ -2,6 +2,7 @@
 #define CLASE_PARTIDO_H
 
 #include <iostream>
+#include <vector>
 #include "manejoDeStrings.h"
 
 class Partido {
@@ -23,6 +24,12 @@ class Partido {
         Post: Devuelve los puntos que obtuvo el pais en el partido
         */
         virtual int obtener_puntaje(const std::string &nombrePais);
+
+        /*
+        Pre: Todos los atributos de la clase deben de estar inicializados.
+        Post: Devuelve un vector con los atributos de la clase.
+        */
+        virtual std::vector<std::string> exportar_partido();
 
         virtual ~Partido() = default;
 };

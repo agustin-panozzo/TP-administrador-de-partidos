@@ -2,6 +2,7 @@
 #define CLASE_SUBMENU_H
 
 #include "claseMenu.h"
+#include "actualizarPartidos.h"
 
 class SubmenuMundial : public Menu {
     private:

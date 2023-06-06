@@ -7,7 +7,7 @@
 #include "manejoDeStrings.h"
 #include "ordenamiento.h"
 class Equipos : public ListaEnlazada<Pais*>{
-    private:
+    public:
         std::vector<Partido*> partidos; // Acá almaceno todos los partidos jugados durante el mundial. 
         std::vector<std::string> grupos; // Los grupos se insertan en orden alfabético.
 
@@ -36,7 +36,7 @@ class Equipos : public ListaEnlazada<Pais*>{
         Pre: -
         Post: Devuelve un puntero al país indicado. Si no existe, devuelve nullptr.
         */
-        Pais* obtener_pais(std::string &nombrePais);
+        Pais* obtener_pais(const std::string &nombrePais);
 
         /*
         Pre: -
@@ -55,6 +55,30 @@ class Equipos : public ListaEnlazada<Pais*>{
         Post: Devuelve un vector con los nombres de los grupos.
         */
         std::vector<std::string> obtener_grupos();
+
+        /*
+        Pre: -
+        Post: Devuelve true si el partido existe. False en caso contrario.
+        */
+        bool existe_partido(const std::string &nombreFase, const std::string &nombrePais1, const std::string &nombrePais2);
+
+        /*
+        Pre: El partido debe de existir.
+        Post: Elimina el partido de la lista de partidos y actualiza las fases de los paises que participaron del partido.
+        */
+        void eliminar_partido(const std::string &nombreFase, Pais* pais1, Pais* pais2);
+
+        /*
+        Pre: -
+        Post: Elimina los punteros que apuntan a nullptr dentro de la lista de partidos.
+        */
+        void actualizar_lista_partidos();
+
+        /*
+        Pre: La fase debe existir.
+        Post: Si la fase no tiene partidos, la elimina de la lista de fases del pais.
+        */
+        void actualizar_fase(Pais* pais, Fase* fase);
 
         ~Equipos();
 };

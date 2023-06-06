@@ -43,3 +43,18 @@ int PartidoConPenales::obtener_puntaje(const string &nombrePais){
 
     return puntaje;
 }
+
+vector<string> PartidoConPenales::exportar_partido(){
+    vector<string> datosPartido;
+
+    cout << pais1 << " " << goles1 << " " << penales1 <<" "<< pais2 << " " << goles2 << " " << penales2 << " " << endl;
+
+    datosPartido.push_back(pais1);
+    datosPartido.push_back(to_string(goles1));
+    datosPartido.push_back(to_string(penales1));
+    datosPartido.push_back(pais2);
+    datosPartido.push_back(to_string(goles2));
+    datosPartido.push_back(to_string(penales2));
+    
+    return datosPartido;
+}

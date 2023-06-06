@@ -12,6 +12,6 @@ int main() {
     cargar_archivo_resultados(&equipos);
 
     menuMundial.abrir();
-
+    //Si hago push_back() a un vector, pierdo las direcciones de memoria de los elementos anteriores
     return 0;
 }

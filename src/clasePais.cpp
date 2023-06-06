@@ -65,6 +65,10 @@ Fase* Pais::obtener_fase(const std::string &nombreFase){
     return fase;
 }
 
+vector<Fase*> Pais::obtener_fases(){
+    return fases;
+}
+
 void Pais::asignar_titulo(Partido* partido, const string &nombreFase){
     if(comparar_strings(nombreFase, "FINAL")){
 
@@ -156,6 +160,21 @@ bool Pais::jugo_en_fase(const string &nombreFase){
     }
 
     return jugo;
+}
+
+void Pais::eliminar_fase(Fase* fase){
+    for(size_t i = 0; i < fases.size(); i++){
+        
+        if(fases[i] == fase){
+            delete fases[i];
+            fases[i] = nullptr;
+            fases.erase(fases.begin() + i);
+        }
+    }
+}
+
+void Pais::eliminar_titulo(){
+    titulo = "Sin titulo";
 }
 
 Pais::~Pais(){

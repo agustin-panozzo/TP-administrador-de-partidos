@@ -56,7 +56,7 @@ void Equipos::insertar_por_puntaje_fase(Pais* pais, const string &fase) {
     insertar(pais, indice);
 }
 
-Pais* Equipos::obtener_pais(string &nombrePais){
+Pais* Equipos::obtener_pais(const string &nombrePais){
     Nodo<Pais*>* nodoActual = primero;
     Pais* paisBuscado = nullptr;
     Pais* aux = nullptr;
@@ -111,6 +111,53 @@ void Equipos::agregar_grupo(const string &grupo){
 
 vector<string> Equipos::obtener_grupos(){
     return grupos;
+}
+
+bool Equipos::existe_partido(const string &nombreFase, const string &nombrePais1, const string &nombrePais2){
+    bool partidoEncontrado = false;
+
+    Fase* fasePais1 = obtener_pais(nombrePais1)->obtener_fase(nombreFase);
+    Fase* fasePais2 = obtener_pais(nombrePais2)->obtener_fase(nombreFase);
+    if(fasePais1 != nullptr && fasePais2 != nullptr){
+
+        if(fasePais1->obtener_partido(nombrePais1, nombrePais2) != nullptr && fasePais2->obtener_partido(nombrePais1, nombrePais2) != nullptr){
+            partidoEncontrado = true;
+        }
+    }
+
+    return partidoEncontrado;
+}
+
+void Equipos::actualizar_lista_partidos(){
+    for(size_t i = 0; i < partidos.size(); i++){
+        if(partidos[i] == nullptr){
+            partidos.erase(partidos.begin() + i);
+        }
+    }
+}
+
+void Equipos::actualizar_fase(Pais* pais, Fase* fase){
+    fase->limpiar_partidos();
+
+    if(fase->esta_vacia()){
+        if(comparar_strings(fase->obtener_nombre(), "SEMIFINAL") || comparar_strings(fase->obtener_nombre(), "TERCER PUESTO") || comparar_strings(fase->obtener_nombre(), "FINAL")){
+            pais->eliminar_titulo();
+        }
+
+        pais->eliminar_fase(fase);
+    }
+}
+
+void Equipos::eliminar_partido(const string &nombreFase, Pais* pais1, Pais* pais2){
+    Fase* fasePais1 = pais1->obtener_fase(nombreFase);
+    Fase* fasePais2 = pais2->obtener_fase(nombreFase);
+
+    fasePais1->eliminar_partido(pais1->obtener_nombre(), pais2->obtener_nombre());
+    fasePais2->eliminar_partido(pais1->obtener_nombre(), pais2->obtener_nombre());
+
+    actualizar_lista_partidos();
+    actualizar_fase(pais1, fasePais1);
+    actualizar_fase(pais2, fasePais2);
 }
 
 Equipos::~Equipos(){

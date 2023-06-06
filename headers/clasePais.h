@@ -68,6 +68,12 @@ class Pais {
 
         /*
         Pre: -
+        Post: Devuelve un vector con las fases del pais.
+        */
+        std::vector<Fase*> obtener_fases();
+
+        /*
+        Pre: -
         Post: Verifica si el pais tiene la fase, si no la tiene la agrega.
         */
         void verificar_fase(const std::string &fase);
@@ -101,6 +107,18 @@ class Pais {
         Post: Devuelve true si el pais jugó en la fase indicada. En caso contrario, devuelve false.
         */
         bool jugo_en_fase(const std::string &fase);
+
+        /*
+        Pre: La fase debe existir.
+        Post Elimina la fase del vector fases.
+        */
+        void eliminar_fase(Fase* fase);
+
+        /*
+        Pre: -
+        Post: Elimina el titulo del pais.
+        */
+        void eliminar_titulo();
 
         ~Pais();
 };

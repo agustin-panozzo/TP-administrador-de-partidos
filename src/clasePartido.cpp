@@ -45,3 +45,17 @@ int Partido::obtener_puntaje(const string &nombrePais){
 
     return puntaje;
 }
+
+vector<string> Partido::exportar_partido(){
+    vector<string> partido;
+    cout << pais1 << " " << goles1 << " " << pais2 << " " << goles2 << " " << endl;
+
+    partido.push_back(pais1);
+    partido.push_back(to_string(goles1));
+    partido.push_back("-1");
+    partido.push_back(pais2);
+    partido.push_back(to_string(goles2));
+    partido.push_back("-1");
+
+    return partido;
+}

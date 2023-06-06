@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "clasePartido.h"
+#include "constantes.h"
 
 class Fase {
     private:
@@ -38,8 +39,36 @@ class Fase {
         */
         std::vector<Partido**> obtener_partidos();
 
+        /*
+        Pre: -
+        Post: Calcula el puntaje de la fase y lo actualiza.
+        */
         void calcular_puntaje_fase();
+
+        /*
+        Pre: -
+        Post: Devuelve un puntero al partido buscado. Si no existe, devuelve nullptr.
+        */
+        Partido* obtener_partido(const std::string &nombrePais1, const std::string &nombrePais2);
+
+        /*
+        Pre: - 
+        Post: Elimina el partido de la fase.
+        */
+        void eliminar_partido(const std::string &nombrePais1, const std::string &nombrePais2);
+
+        /*
+        Pre: -
+        Post: Elimina de la lista los punteros que apuntan a partidos ya eliminados (nullptr).
+        */
+        void limpiar_partidos();
         
+        /*
+        Pre: -
+        Post: Devuelve true si la fase no contiene partidos. False en caso contrario.
+        */
+        bool esta_vacia();
+
         ~Fase() = default;
 };
 

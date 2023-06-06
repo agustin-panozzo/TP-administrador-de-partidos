@@ -32,6 +32,5 @@ Partido* generar_partido(vector<string> &lineaProcesada, const string &nombreFas
         ); 
         cout << "Se creo un partido sin penales en: " << nuevoPartido << endl;
     }
-
     return nuevoPartido;
 }

@@ -11,7 +11,7 @@ SubmenuMundial::SubmenuMundial(Equipos* equipos, const int cantidadOpciones, con
 }
 
 void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
-    limpiar_pantalla();
+    //limpiar_pantalla();
 
     switch(opcionElegida) {
         case 1:
@@ -21,7 +21,7 @@ void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
             break;
 
         case 3:
-            //eliminar_partido(equipos); -> equipos->obtener_partido();
+            eliminar_partidos(equipos);
             break;
             
         case 4:

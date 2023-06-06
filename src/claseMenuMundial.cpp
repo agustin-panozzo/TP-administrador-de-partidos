@@ -8,7 +8,7 @@ MenuMundial::MenuMundial(Equipos* equipos, const int cantidadOpciones, const std
 }
 
 void MenuMundial::ejecutar_accion(const int &opcionElegida){
-    limpiar_pantalla();
+    //limpiar_pantalla();
 
     switch(opcionElegida) {
         case 1:
