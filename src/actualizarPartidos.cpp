@@ -30,3 +30,7 @@ void eliminar_partidos(Equipos* equipos){
     
 
 }
+
+void modificar_partidos(Equipos* equipos){
+    
+}

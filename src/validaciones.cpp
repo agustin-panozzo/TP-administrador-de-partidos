@@ -65,14 +65,8 @@ bool hubo_penales(vector<string> &datosResultados, const string &fase){
 }
 
 bool comparar_datos_partido(vector<string>& datosPartido, const string& nombrePais1, const string& nombrePais2) {
-    bool datosCoinciden = false;
-
     bool nombresCoinciden = (comparar_strings(datosPartido[NOMBRE_PAIS_1], nombrePais1) && comparar_strings(datosPartido[NOMBRE_PAIS_2], nombrePais2)) ||
                             (comparar_strings(datosPartido[NOMBRE_PAIS_1], nombrePais2) && comparar_strings(datosPartido[NOMBRE_PAIS_2], nombrePais1));
 
-    if(nombresCoinciden) {
-        datosCoinciden = true;
-    }
-
-    return datosCoinciden;
+    return nombresCoinciden;
 }
