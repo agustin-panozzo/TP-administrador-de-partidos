@@ -58,7 +58,7 @@ class Pais {
         Pre: -
         Post: Actualiza las fases con los datos proporcionados por el archivo.
         */
-        void actualizar_fase(const std::string &fase, Partido* &partido);
+        void actualizar_fase(const std::string &fase, Partido* partido);
 
         /*
         Pre: -

@@ -81,11 +81,11 @@ Pais* Equipos::obtener_pais(const string &nombrePais){
 void Equipos::actualizar_fases(vector<string> &lineaProcesada, const string &fase){
     Pais* pais1 = obtener_pais(lineaProcesada[NOMBRE_PAIS_1]);
     Pais* pais2 = obtener_pais(lineaProcesada[NOMBRE_PAIS_2]);
+    Partido* partidoNuevo = generar_partido(lineaProcesada, fase);
     
-    partidos.push_back(generar_partido(lineaProcesada, fase));
-
-    pais1->actualizar_fase(fase, partidos[partidos.size() - 1]);
-    pais2->actualizar_fase(fase, partidos[partidos.size() - 1]);
+    partidos.push_back(partidoNuevo);//Almaceno el puntero para poder liberar todo en el destructor de Equipos directamente
+    pais1->actualizar_fase(fase, partidoNuevo);
+    pais2->actualizar_fase(fase, partidoNuevo);
 }
 
 bool Equipos::existe_grupo(const string &grupo){
@@ -155,7 +155,6 @@ void Equipos::eliminar_partido(const string &nombreFase, Pais* pais1, Pais* pais
     fasePais1->eliminar_partido(pais1->obtener_nombre(), pais2->obtener_nombre());
     fasePais2->eliminar_partido(pais1->obtener_nombre(), pais2->obtener_nombre());
 
-    actualizar_lista_partidos();
     actualizar_fase(pais1, fasePais1);
     actualizar_fase(pais2, fasePais2);
 }

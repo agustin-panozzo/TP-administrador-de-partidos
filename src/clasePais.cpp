@@ -93,12 +93,12 @@ void Pais::asignar_titulo(Partido* partido, const string &nombreFase){
     }
 }
 
-void Pais::actualizar_fase(const string &nombreFase, Partido* &partido){
+void Pais::actualizar_fase(const string &nombreFase, Partido* partido){
     if(comparar_strings(nombreFase, "FINAL") || comparar_strings(nombreFase, "TERCER PUESTO")){
         asignar_titulo(partido, nombreFase);
     };
 
-    verificar_fase(nombreFase); // Verifico si el pais tiene la fase, si no la tiene la agrega. 
+    verificar_fase(nombreFase); 
     Fase* fase = obtener_fase(nombreFase);
     fase->agregar_partido(partido);
     fase->calcular_puntaje_fase(); // Cada vez que se agrega un partido, debo recalcular el puntaje.

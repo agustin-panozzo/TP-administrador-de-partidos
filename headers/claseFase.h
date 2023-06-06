@@ -10,7 +10,7 @@ class Fase {
     private:
         int puntajeFase;
         std::string nombreFase, nombrePais; //nombrePais lo uso para el calculo del puntaje en cada partido
-        std::vector<Partido**> partidos;
+        std::vector<Partido*> partidos;
 
     public:
         explicit Fase(const std::string nombreFase, const std::string nombrePais);
@@ -31,13 +31,13 @@ class Fase {
         Pre: -
         Post: Agrega un partido a la fase.
         */
-        void agregar_partido(Partido* &partido);
+        void agregar_partido(Partido* partido);
 
         /*
         Pre: -
         Post: Devuelve un vector con los partidos de la fase.
         */
-        std::vector<Partido**> obtener_partidos();
+        std::vector<Partido*> obtener_partidos();
 
         /*
         Pre: -
