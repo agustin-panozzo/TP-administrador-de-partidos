@@ -60,7 +60,7 @@ class Equipos : public ListaEnlazada<Pais*>{
         Pre: -
         Post: Devuelve true si el partido existe. False en caso contrario.
         */
-        bool existe_partido(const std::string &nombreFase, const std::string &nombrePais1, const std::string &nombrePais2);
+        bool existe_partido(const std::string &nombreFase, Pais* pais1, Pais* pais2);
 
         /*
         Pre: El partido debe de existir.

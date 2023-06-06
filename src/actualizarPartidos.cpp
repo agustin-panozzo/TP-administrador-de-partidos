@@ -17,10 +17,10 @@ void eliminar_partidos(Equipos* equipos){
         getline(cin >> ws, nombrePais2);
     }while(!es_una_fase(nombreFase) || equipos->obtener_pais(nombrePais1) == nullptr || equipos->obtener_pais(nombrePais2) == nullptr);
 
-    if(equipos->existe_partido(nombreFase, nombrePais1, nombrePais2)){
-        pais1 = equipos->obtener_pais(nombrePais1);
-        pais2 = equipos->obtener_pais(nombrePais2);
+    pais1 = equipos->obtener_pais(nombrePais1);
+    pais2 = equipos->obtener_pais(nombrePais2);
 
+    if(equipos->existe_partido(nombreFase, pais1, pais2)){
         equipos->eliminar_partido(nombreFase, pais1, pais2);
     }
 

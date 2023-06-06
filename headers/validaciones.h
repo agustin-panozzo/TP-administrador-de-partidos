@@ -36,4 +36,10 @@ Post: Devuelve true si hubo penales en el partido. En caso contrario, devuelve f
 */
 bool hubo_penales(std::vector<std::string> &datosResultados, const std::string &fase);
 
+/*
+Pre: -
+Post: Devuelve true si el vector contiene los nombres indicados. En caso contrario, devuelve false.
+*/
+bool comparar_datos_partido(std::vector<std::string> &datosPartido, const std::string &nombrePais1, const std::string &nombrePais2);
+
 #endif // VALIDACIONES_H

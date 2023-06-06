@@ -41,7 +41,7 @@ Partido* Fase::obtener_partido(const string &nombrePais1, const string &nombrePa
         if(partidos[i] != nullptr){
             datosPartido = partidos[i]->exportar_partido();
 
-            if(comparar_strings(datosPartido[NOMBRE_PAIS_1], nombrePais1) && comparar_strings(datosPartido[NOMBRE_PAIS_2], nombrePais2)){
+            if(comparar_datos_partido(datosPartido, nombrePais1, nombrePais2)){
                 partidoBuscado = partidos[i];
             }
         }

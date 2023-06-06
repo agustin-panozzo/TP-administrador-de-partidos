@@ -5,6 +5,7 @@
 #include <vector>
 #include "clasePartido.h"
 #include "constantes.h"
+#include "validaciones.h"
 
 class Fase {
     private:

@@ -113,11 +113,13 @@ vector<string> Equipos::obtener_grupos(){
     return grupos;
 }
 
-bool Equipos::existe_partido(const string &nombreFase, const string &nombrePais1, const string &nombrePais2){
+bool Equipos::existe_partido(const string &nombreFase, Pais* pais1, Pais* pais2){
     bool partidoEncontrado = false;
+    string nombrePais1 = pais1->obtener_nombre();
+    string nombrePais2 = pais2->obtener_nombre();
 
-    Fase* fasePais1 = obtener_pais(nombrePais1)->obtener_fase(nombreFase);
-    Fase* fasePais2 = obtener_pais(nombrePais2)->obtener_fase(nombreFase);
+    Fase* fasePais1 = pais1->obtener_fase(nombreFase);
+    Fase* fasePais2 = pais2->obtener_fase(nombreFase);
     if(fasePais1 != nullptr && fasePais2 != nullptr){
 
         if(fasePais1->obtener_partido(nombrePais1, nombrePais2) != nullptr && fasePais2->obtener_partido(nombrePais1, nombrePais2) != nullptr){
