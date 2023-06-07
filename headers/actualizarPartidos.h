@@ -2,6 +2,9 @@
 #define ACTUALIZAR_PARTIDOS_H
 
 #include "claseEquipos.h"
+#include "claseSubmenuMundial.h"
+#include "constantes.h"
+#include <iostream>
 
 /*
 Pre: -

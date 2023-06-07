@@ -9,6 +9,7 @@ const std::string ARCHIVO_RESULTADOS = "../resultados.csv";
 const int CANTIDAD_FASES = 6;
 const int CANTIDAD_OPCIONES_MENU = 6;
 const int CANTIDAD_OPCIONES_SUBMENU = 4;
+const int CANTIDAD_OPCIONES_MODIFICAR_PARTIDO = 3;
 
 enum DATOS_EQUIPO {NOMBRE, GRUPO};
 enum DATOS_RESULTADOS {NOMBRE_PAIS_1, GOLES_1, PENALES_1, NOMBRE_PAIS_2, GOLES_2, PENALES_2};
@@ -29,6 +30,12 @@ const std::string SUBMENU[CANTIDAD_OPCIONES_SUBMENU] = {
     "Actualizar un partido.",
     "Eliminar un partido.",
     "Volver al menu principal."
+};
+
+const std::string MODIFICAR_PARTIDO[CANTIDAD_OPCIONES_MODIFICAR_PARTIDO] = {
+    "Modificar goles.",
+    "Modificar equipos",
+    "Volver al menu anterior."
 };
 
 #endif // CONSTANTES_H
