@@ -3,10 +3,12 @@
 
 #include "claseMenu.h"
 #include "actualizarPartidos.h"
+#include "claseMenuModificarPartidos.h"
 
 class SubmenuMundial : public Menu {
     private:
         Equipos* equipos;
+        MenuModificarPartidos menuModificarPartidos;
 
         void ejecutar_accion(const int &opcionElegida) override;
 

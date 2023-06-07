@@ -8,6 +8,7 @@ SubmenuMundial::SubmenuMundial() : Menu() {
 
 SubmenuMundial::SubmenuMundial(Equipos* equipos, const int cantidadOpciones, const string opciones[]) : Menu(cantidadOpciones, opciones) {
     this->equipos = equipos;
+    this->menuModificarPartidos = MenuModificarPartidos(equipos, CANTIDAD_OPCIONES_MODIFICAR_PARTIDO, MODIFICAR_PARTIDO);
 }
 
 void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
@@ -18,6 +19,7 @@ void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
             break;
 
         case 2:
+            menuModificarPartidos.abrir();
             break;
 
         case 3:

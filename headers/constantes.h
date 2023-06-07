@@ -27,7 +27,7 @@ const std::string MENU[CANTIDAD_OPCIONES_MENU] = {
 
 const std::string SUBMENU[CANTIDAD_OPCIONES_SUBMENU] = {
     "Agregar un partido.",
-    "Actualizar un partido.",
+    "Modificar un partido.",
     "Eliminar un partido.",
     "Volver al menu principal."
 };
