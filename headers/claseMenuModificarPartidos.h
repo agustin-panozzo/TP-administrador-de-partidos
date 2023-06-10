@@ -13,6 +13,8 @@ class MenuModificarPartidos : public Menu {
         MenuModificarPartidos();
         explicit MenuModificarPartidos(Equipos* equipos, const int cantidadOpciones, const std::string opciones[]);
 
+        void abrir() override;
+        
         ~MenuModificarPartidos() = default;
 };
 

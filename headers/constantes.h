@@ -38,4 +38,9 @@ const std::string MODIFICAR_PARTIDO[CANTIDAD_OPCIONES_MODIFICAR_PARTIDO] = {
     "Volver al menu anterior."
 };
 
+const std::string ADVERTENCIA_AGREGAR_PARTIDOS = 
+R"(WARNING: Agregar partidos de más puede generar inconsistencias en el programa.
+- Si todas las fases ya tienen sus respectivos partidos, es recomendable eliminar alguno antes de agregar uno nuevo.
+- Los partidos agregados deben de ser jugados con equipos ya existentes.)";
+
 #endif // CONSTANTES_H

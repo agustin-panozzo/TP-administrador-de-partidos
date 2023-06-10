@@ -6,7 +6,7 @@
 #include "opcionesMenu.h"
 #include "actualizarPartidos.h"
 class Menu {
-    private:
+    protected:
         int cantidadOpciones;
         std::vector<std::string> opciones;
         
@@ -37,7 +37,7 @@ class Menu {
         Pre: -
         Post: Abre el menu y ejecuta las opciones que elige el usuario.
         */
-        void abrir();
+        virtual void abrir();
 
         ~Menu() = default;
     };
