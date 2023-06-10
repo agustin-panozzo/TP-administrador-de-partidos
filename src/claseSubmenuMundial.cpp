@@ -4,6 +4,7 @@ using namespace std;
 
 SubmenuMundial::SubmenuMundial() : Menu() {
     this->equipos = nullptr;
+    this->menuModificarPartidos = MenuModificarPartidos();
 }
 
 SubmenuMundial::SubmenuMundial(Equipos* equipos, const int cantidadOpciones, const string opciones[]) : Menu(cantidadOpciones, opciones) {
@@ -16,6 +17,7 @@ void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
 
     switch(opcionElegida) {
         case 1:
+            agregar_partido(equipos);
             break;
 
         case 2:

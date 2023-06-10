@@ -4,6 +4,7 @@
 #include <iostream>
 #include "claseEquipos.h"
 #include "opcionesMenu.h"
+#include "actualizarPartidos.h"
 class Menu {
     private:
         int cantidadOpciones;

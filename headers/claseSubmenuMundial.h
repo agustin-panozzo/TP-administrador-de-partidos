@@ -1,8 +1,6 @@
 #ifndef CLASE_SUBMENU_H
 #define CLASE_SUBMENU_H
 
-#include "claseMenu.h"
-#include "actualizarPartidos.h"
 #include "claseMenuModificarPartidos.h"
 
 class SubmenuMundial : public Menu {

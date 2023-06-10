@@ -12,12 +12,17 @@ MenuModificarPartidos::MenuModificarPartidos(Equipos* equipos, const int cantida
 
 void MenuModificarPartidos::ejecutar_accion(const int &opcionElegida){
     //limpiar_pantalla();
+    string nombreFase, nombrePais1, nombrePais2;
 
     switch(opcionElegida) {
         case 1:
+            solicitar_datos_partido(equipos, nombreFase, nombrePais1, nombrePais2);
+            modificar_goles(equipos, nombreFase, nombrePais1, nombrePais2);
             break;
 
         case 2:
+            solicitar_datos_partido(equipos, nombreFase, nombrePais1, nombrePais2);
+            modificar_equipos(equipos, nombreFase, nombrePais1, nombrePais2);
             break;
             
         case 3:

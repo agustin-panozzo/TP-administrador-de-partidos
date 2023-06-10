@@ -82,7 +82,7 @@ void buscar_pais(Equipos* equipos){
     paisBuscado = equipos->obtener_pais(nombrePais);
 
     if(paisBuscado != nullptr){
-        limpiar_pantalla();
+        //limpiar_pantalla();
         cout << "\n  =  =  =  PAIS ENCONTRADO  =  =  =  " << endl;
         cout << "Nombre: " << paisBuscado->obtener_nombre() << endl; 
         cout << "Grupo: " << paisBuscado->obtener_grupo() << endl;
