@@ -12,6 +12,18 @@ SubmenuMundial::SubmenuMundial(Equipos* equipos, const int cantidadOpciones, con
     this->menuModificarPartidos = MenuModificarPartidos(equipos, CANTIDAD_OPCIONES_MODIFICAR_PARTIDO, MODIFICAR_PARTIDO);
 }
 
+void SubmenuMundial::abrir(){
+    int opcionElegida;
+
+    do{
+        mostrar();
+        cout << ADVERTENCIA_AGREGAR_PARTIDOS << endl;
+        opcionElegida = elegir_opcion();
+        ejecutar_accion(opcionElegida);
+
+    }while(opcionElegida != cantidadOpciones); // La ultima opción siempre es la de salir
+}
+
 void SubmenuMundial::ejecutar_accion(const int &opcionElegida){
     //limpiar_pantalla();
 

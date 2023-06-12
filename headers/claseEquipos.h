@@ -8,7 +8,7 @@
 #include "ordenamiento.h"
 class Equipos : public ListaEnlazada<Pais*>{
     public:
-        std::vector<Partido*> partidos; // Acá almaceno todos los partidos jugados durante el mundial. 
+        std::vector<Partido*> partidos;
         std::vector<std::string> grupos; // Los grupos se insertan en orden alfabético.
 
         /*

@@ -33,6 +33,7 @@ void MenuMundial::ejecutar_accion(const int &opcionElegida){
             
         case 6:
             cout << "Saliendo del programa..." << endl;
+            exportar_partidos(equipos);
             break;
             
         default:

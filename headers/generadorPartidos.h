@@ -1,5 +1,5 @@
-#ifndef GENERAR_OBJETOS_H
-#define GENERAR_OBJETOS_H
+#ifndef GENERARADOR_PARTIDOS_H
+#define GENERADOR_PARTIDOS_H
 
 #include <vector>
 #include "clasePartidoConPenales.h"

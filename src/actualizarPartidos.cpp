@@ -23,7 +23,7 @@ void solicitar_goles(vector<string> &datosPartido, const string &nombreFase){
         cout << "Ingrese la cantidad de goles de " << datosPartido[NOMBRE_PAIS_1] << ":" << endl;
         cin >> goles1;
 
-        cout << "Ingrese la cantidad de " << datosPartido[NOMBRE_PAIS_2] << ":" << endl;
+        cout << "Ingrese la cantidad de goles de " << datosPartido[NOMBRE_PAIS_2] << ":" << endl;
         cin >> goles2;
 
     }while(goles1 > 20 || goles2 > 20 || goles1 < 0 || goles2 < 0);
@@ -132,7 +132,7 @@ string solicitar_fase(){
     string nombreFase;
 
     do{
-        cout << "Ingrese la fase en la que se jugó el partido: " << endl;
+        cout << "Ingrese la fase en la que se jugo el partido: " << endl;
         getline(cin >> ws, nombreFase);
 
     }while(!es_una_fase(nombreFase));

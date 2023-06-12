@@ -5,6 +5,7 @@
 #include <vector>
 #include "constantes.h"
 #include "manejoDeStrings.h"
+#include "clasePartido.h"
 
 /*
 Pre: -
@@ -41,5 +42,11 @@ Pre: -
 Post: Devuelve true si el vector contiene los nombres indicados. En caso contrario, devuelve false.
 */
 bool comparar_datos_partido(std::vector<std::string> &datosPartido, const std::string &nombrePais1, const std::string &nombrePais2);
+
+/*
+Pre: -
+Post: Devuelve true si el partido se encuentra en el vector. En caso contrario, devuelve false.
+*/
+bool partido_esta_en_vector(Partido* partido, std::vector<Partido*> partidos);
 
 #endif // VALIDACIONES_H

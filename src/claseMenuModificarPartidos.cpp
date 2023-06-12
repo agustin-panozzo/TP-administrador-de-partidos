@@ -10,16 +10,6 @@ MenuModificarPartidos::MenuModificarPartidos(Equipos* equipos, const int cantida
     this->equipos = equipos;
 }
 
-void MenuModificarPartidos::abrir(){
-    int opcionElegida;
-    do {
-        mostrar();
-        cout << ADVERTENCIA_AGREGAR_PARTIDOS << endl;
-        opcionElegida = elegir_opcion();
-        ejecutar_accion(opcionElegida);
-    } while (opcionElegida != cantidadOpciones);
-}
-
 void MenuModificarPartidos::ejecutar_accion(const int &opcionElegida){
     //limpiar_pantalla();
     string nombreFase, nombrePais1, nombrePais2;

@@ -6,7 +6,7 @@
 #include "claseFase.h"
 #include "validaciones.h"
 #include "clasePartido.h"
-#include "generarObjetos.h"
+#include "generadorPartidos.h"
 class Pais {
     private:
         std::string nombre;

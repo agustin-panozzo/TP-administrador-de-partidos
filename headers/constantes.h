@@ -4,7 +4,7 @@
 #include <iostream>
 
 const std::string ARCHIVO_EQUIPOS = "../equipos.txt"; 
-const std::string ARCHIVO_RESULTADOS = "../resultados.csv";
+const std::string ARCHIVO_RESULTADOS = "../PRUEBAS.csv";
 
 const int CANTIDAD_FASES = 6;
 const int CANTIDAD_OPCIONES_MENU = 6;
@@ -22,7 +22,7 @@ const std::string MENU[CANTIDAD_OPCIONES_MENU] = {
     "Buscar equipo por nombre.",
     "Mostrar por fase los paises ordenados por puntaje",
     "Actualizar partidos.",
-    "Salir."
+    "Guardar y salir."
 };
 
 const std::string SUBMENU[CANTIDAD_OPCIONES_SUBMENU] = {

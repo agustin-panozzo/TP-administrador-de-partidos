@@ -1,4 +1,4 @@
-#include "../headers/generarObjetos.h"
+#include "../headers/generadorPartidos.h"
 
 using namespace std;
 

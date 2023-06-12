@@ -14,6 +14,8 @@ class SubmenuMundial : public Menu {
         SubmenuMundial();
         explicit SubmenuMundial(Equipos* equipos, const int cantidadOpciones, const std::string opciones[]);
 
+        void abrir() override;
+
         ~SubmenuMundial() = default;
 };
 

@@ -111,3 +111,58 @@ void cargar_archivo_resultados(Equipos* equipos){
         cout << "No se pudo abrir el archivo" << endl;
     }
 }
+
+string formatear_partido(vector<string> &datosPartido, const string &nombreFase){
+    string partidoFormateado;
+
+    for(size_t i = 0; i < datosPartido.size(); i++){
+
+        if( !(comparar_strings("GRUPOS", nombreFase) && datosPartido[i] == "-1") ){
+            partidoFormateado += datosPartido[i];
+
+            if( (i != datosPartido.size() - 1 && !(comparar_strings("GRUPOS", nombreFase) && i == datosPartido.size() - 2)) ){
+                partidoFormateado += ',';
+            }
+        }
+    }
+
+    return partidoFormateado;
+}
+
+void exportar_partidos(Equipos* equipos){
+    string linea, fase;
+    vector<string> datosPartido;
+    vector<Partido*> partidosExportados;
+    ofstream archivo("../PRUEBAS.csv", ios::trunc);
+
+    if(archivo.is_open()){
+        for(int i = 0; i < CANTIDAD_FASES; i++){
+            partidosExportados.clear();
+            fase = FASES[i];
+            archivo << fase << endl;
+
+            for(int i = 1; i <= equipos->obtener_tamanio(); i++){
+
+                Fase* faseActual = equipos->obtener_dato(i)->obtener_fase(fase);
+
+                if(faseActual != nullptr){
+                    vector<Partido*> partidos = equipos->obtener_dato(i)->obtener_fase(fase)->obtener_partidos();
+                    cout << i << endl;
+                    for(size_t i = 0; i < partidos.size(); i++){
+
+                        if(!partido_esta_en_vector(partidos[i], partidosExportados)){
+                            partidosExportados.push_back(partidos[i]);
+                            datosPartido = partidos[i]->exportar_partido();
+
+                            archivo << formatear_partido(datosPartido, fase) << endl;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    else{
+        cout << "No se pudo abrir el archivo" << endl;
+    }
+}

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "claseMenu.h"
 #include "claseSubmenuMundial.h"
+#include "procesadoDeArchivos.h"
 
 class MenuMundial : public Menu {
     private:

@@ -70,3 +70,15 @@ bool comparar_datos_partido(vector<string>& datosPartido, const string& nombrePa
 
     return nombresCoinciden;
 }
+
+bool partido_esta_en_vector(Partido* partido, vector<Partido*> partidosExportados){
+    bool estaEnVector = false;
+
+    for(size_t i = 0; i < partidosExportados.size(); i++){
+        if(partido->exportar_partido() == partidosExportados[i]->exportar_partido()){
+            estaEnVector = true;
+        }
+    }
+
+    return estaEnVector;
+}
